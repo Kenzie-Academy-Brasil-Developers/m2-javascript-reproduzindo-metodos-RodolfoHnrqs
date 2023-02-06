@@ -26,14 +26,14 @@ function newFind(array, callback) {
 
 function newReduce(array, callback, initial) {
   let newReduce = 0;
-  if(initial == null){
-    initial = 0;
+  if(initial == undefined){
+    newReduce = 0;
   }else{
     newReduce += initial;
     initial = 0;
   }
   for (let i = 0; i < array.length; i++){
-    newReduce += callback(initial, i, array);
+    newReduce = callback(newReduce, array[i]);
   }
 
   return newReduce;  
